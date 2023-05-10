@@ -19,6 +19,7 @@ class Character(models.Model):
     surname = models.CharField(max_length=80, blank=True, null=True, verbose_name="Surname", help_text="If known enter character's surname")
     status = models.CharField(max_length=8, choices=STATUS_CHOICES, default='Unknown', verbose_name="Status", help_text="Select character's status")
     gender = models.CharField(max_length=7, choices=GENDER_CHOICES, default='Unknown', verbose_name='Gender', help_text="Enter character's gender")
+    photo = models.ImageField(upload_to="characters", null=True, blank=True, verbose_name='Photo of character', help_text='Upload characters picture')
     affiliation = models.ManyToManyField('Groups', blank=True, verbose_name='Affiliation')
     appears = models.ManyToManyField('Games', verbose_name='Appears in')
 

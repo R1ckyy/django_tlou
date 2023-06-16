@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    {% if character.surname %}
+    <h2 class="text-center text-white p-2">{{character.name}} {{character.surname}}</h2>
+    {% else %}
+    <h2 class="text-center text-white p-2">{{character.name}}</h2>
+    {% endif %}
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6 lore text-white">
+        {{character.description}}
+
+        {{character.lore}}
+    </div>
+    <div class="col-sm-2">
+        <div class="card bg-dark">
+            <div class="card-header text-white text-center">
+                {% if character.surname %}
+                {{character.name}} {{character.surname}}
+                {% else %}
+                {{character.name}}
+                {% endif %}
+              </div>
+            <img class="card-img-top" src="{{character.photo.url}}" alt="{{character.name}}">
+            <div class="card-body text-white">
+                <p class="card-text">Status: <strong>{{character.status}}</strong></p>
+                <p class="card-text">Gender: <strong>{{character.gender}}</strong></p>
+                {% if character.affiliation.all %}
+                <p class="card-text">Affiliations:</p>
+                <ul>
+                    {% for group in character.affiliation.all %}
+                    <li>{{group.name}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <p class="card-text">Can be seen in:</p>
+                <ul>
+                    {% for game in character.appears.all %}
+                    <li>{{game.name}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+          </div>
+        <div class="mb-5"></div>
+    </div>
+</div>
+   
+{% endblock %}

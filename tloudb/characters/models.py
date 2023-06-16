@@ -17,6 +17,8 @@ class Character(models.Model):
 
     name = models.CharField(max_length=80, verbose_name="First name", help_text="Enter character's first name")
     surname = models.CharField(max_length=80, blank=True, null=True, verbose_name="Surname", help_text="If known enter character's surname")
+    description = models.CharField(max_length=300, verbose_name="Description", help_text="Enter a short description")
+    lore = models.TextField(verbose_name="Backstory/Lore", help_text="Enter characters backstory/lore")
     status = models.CharField(max_length=8, choices=STATUS_CHOICES, default='Unknown', verbose_name="Status", help_text="Select character's status")
     gender = models.CharField(max_length=7, choices=GENDER_CHOICES, default='Unknown', verbose_name='Gender', help_text="Enter character's gender")
     photo = models.ImageField(upload_to="characters", null=True, blank=True, verbose_name='Photo of character', help_text='Upload characters picture')

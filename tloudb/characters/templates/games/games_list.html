@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2 class="text-center text-white p-2">TLoU games</h2>
+</div>
+    <div class="card-group">
+        {% for game in games %}
+        <div class="card bg-dark text-white">
+            <div class="card-body">
+              <h4 class="card-title">{{game.name}}</h4>
+              <p class="card-text">{{game.released}}</p>
+              <a href="{% url 'game' game.pk %}" class="btn btn-primary">Read more ></a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+    <div class="m-5"></div>
+</div>
+{% endblock %}

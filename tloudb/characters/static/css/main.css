@@ -1,0 +1,23 @@
+header{
+    background-image: url('../img/TLoU-Banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body{
+    background-color: black !important;
+}
+
+hr{
+    background-color: white;
+    width: 75%;
+}
+
+.lore{
+    white-space: pre-wrap;
+}
+
+.navbar{
+    margin-top: -2rem !important;
+}

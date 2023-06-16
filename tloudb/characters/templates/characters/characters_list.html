@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2 class="text-center text-white p-2">List of characters</h2>
+</div>
+    {% for character in characters %}
+        <div class="row container-fluid mb-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <img src="{{character.photo.url}}" alt="">
+            </div>
+            <div class="col-sm-6 text-white">
+                {% if character.surname %}
+                <h4>{{character.name}} {{character.surname}}</h4>
+                {% else %}
+                <h4>{{character.name}}</h4>
+                {% endif %}
+                <p>{{character.description}}</p>
+            </div>
+            <div class="col-sm-1 my-auto">
+                <a href="{% url 'detail' character.pk %}" type="button" class="btn btn-primary">Read more ></a>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <hr>
+    {% endfor %}
+    <div class="m-5"></div>
+</div>
+{% endblock %}
